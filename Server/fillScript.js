@@ -3,7 +3,10 @@ const fs = require("fs");
 const path = require("path");
 const jsonSource = fs.readFileSync(path.join(__dirname, "AllCards.json"));
 const jsonObj = JSON.parse(jsonSource);
-
+/**
+ * Drops the 'Cards' table of the DB, if already present, and fills the table with data taken from
+ * the AllCards.json file
+ */
 CardModel.sync({force: true}).then(() => {
     for (let key in jsonObj) {
         if (jsonObj.hasOwnProperty(key)) {
@@ -36,9 +39,8 @@ CardModel.sync({force: true}).then(() => {
                 toughness: value.toughness
             }).catch((err)=>{
                 console.log(err);
+                process.exit(-1);
             });
-
-
         }
     }
 });
