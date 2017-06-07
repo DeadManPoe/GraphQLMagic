@@ -27,14 +27,14 @@ CardModel.sync({force: true}).then(() => {
                 value.toughness = 'NONE'
             }
             CardModel.create({
-                name: value.name,
-                text: value.text,
+                name: value.name.toLowerCase(),
+                text: value.text.toLowerCase(),
                 cmc: value.cmc | 0,
                 mana_cost: value.manaCost,
                 color: value.colors.reduce((curr,accumulator) => {
                     return curr + accumulator
                 },''),
-                type: value.type,
+                type: value.type.toLowerCase(),
                 power: value.power,
                 toughness: value.toughness
             }).catch((err)=>{

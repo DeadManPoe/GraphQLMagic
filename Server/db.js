@@ -14,7 +14,6 @@ const dbContext = new Sequelize(
         },
     }
 );
-console.log("dsdsd");
 dbContext
     .authenticate()
     .then(() => {
