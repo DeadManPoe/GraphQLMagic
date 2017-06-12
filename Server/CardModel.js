@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
 const DbContext = require("./db");
-
+const SetModel = require("./SetModel");
+const ArtistModel = require("./ArtistModel");
 const CardModel = DbContext.define('Card',{
     name : {
         type : Sequelize.STRING,
         allowNull : false,
-        primaryKey : true
     },
     text : {
         type : Sequelize.TEXT,
@@ -34,6 +34,27 @@ const CardModel = DbContext.define('Card',{
     toughness : {
         type : Sequelize.STRING,
         allowNull : false
+    },
+    multiverse_id : {
+        type : Sequelize.INTEGER,
+        allowNull : false,
+    },
+    id : {
+        type : Sequelize.STRING,
+        primaryKey : true
+    },
+    flavour_text :{
+        type : Sequelize.TEXT,
+        allowNull : false
     }
+
 });
+CardModel.belongsTo(SetModel, { foreignKey : {
+    name : 'set',
+    allowNull : false
+}});
+//CardModel.belongsTo(ArtistModel, {foreignKey: {
+//    name : 'artist',
+//    allowNull : false
+//}});
 module.exports = CardModel;
