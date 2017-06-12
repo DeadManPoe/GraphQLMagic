@@ -51,4 +51,9 @@ router.use(stripNullFields);
 router.use(makeTextualFieldsLowerCase);
 router.get("/card", getCard);
 
-module.exports = router;
+module.exports = {
+    router : router,
+    makeTextualFieldsLowerCase : makeTextualFieldsLowerCase,
+    stripNullFields : stripNullFields,
+    getCard : getCard
+};

@@ -1,11 +1,15 @@
 {
   "scripts": {
-    "fill_db" : "node ./Server/fillScript.js"
+    "fill_db": "node ./Server/fillScript.js",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "pg": "^6.1.5",
     "sequelize": "^3.30.4"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
   }
 }

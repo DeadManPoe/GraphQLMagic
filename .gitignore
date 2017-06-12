@@ -155,3 +155,4 @@ fabric.properties
 
 #Data file
 Server/AllCards.json
+Server/AllSets.json
